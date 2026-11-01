@@ -1,0 +1,19 @@
+.appFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.appFooter {
+  padding: 20px 36px;
+  border-top: 1px solid #e7eae2;
+  color: var(--color-text-secondary);
+  font-size: 11px;
+}
+
+@media (max-width: 560px) {
+  .appFooter {
+    padding: 18px 20px;
+  }
+}
