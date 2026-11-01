@@ -17,3 +17,8 @@ src-tauri/gen/
 Thumbs.db
 .idea/
 .vscode/
+
+# Test artifacts
+playwright-report/
+test-results/
+coverage/

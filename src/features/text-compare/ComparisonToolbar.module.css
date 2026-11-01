@@ -1,0 +1,92 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px;
+  border: 1px solid #e1e6db;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  background: #f2f4ed;
+}
+
+.viewLabel,
+.actions,
+.textButton,
+.iconButton {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.viewLabel {
+  color: #53694f;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.actions {
+  gap: 4px;
+}
+.textButton,
+.iconButton {
+  justify-content: center;
+  min-height: 30px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background: transparent;
+  color: #455b44;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+.textButton {
+  padding: 4px 9px;
+}
+.iconButton {
+  width: 30px;
+  padding: 4px;
+}
+.textButton:hover:not(:disabled),
+.iconButton:hover:not(:disabled) {
+  border-color: #d4ddcc;
+  background: #fffefa;
+}
+.textButton:focus-visible,
+.iconButton:focus-visible {
+  outline: 2px solid #54774a;
+  outline-offset: 2px;
+}
+.textButton:disabled,
+.iconButton:disabled {
+  color: #98a18f;
+  cursor: default;
+}
+.divider {
+  height: 17px;
+  width: 1px;
+  background: #d9e0d1;
+  margin: 0 8px;
+}
+.position {
+  min-width: 48px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 700px) {
+  .toolbar {
+    padding: 8px;
+    gap: 4px;
+  }
+  .viewLabel {
+    gap: 5px;
+  }
+  .textButton {
+    padding: 4px 6px;
+  }
+  .divider {
+    margin: 0 3px;
+  }
+}
