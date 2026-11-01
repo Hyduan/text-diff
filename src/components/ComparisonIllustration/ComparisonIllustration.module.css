@@ -1,0 +1,65 @@
+.comparisonMark {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 18px;
+  margin-bottom: 26px;
+}
+
+.paper {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  width: 88px;
+  height: 112px;
+  padding: 24px 18px;
+  border: 1px solid #e0e5dc;
+  border-radius: 12px;
+  background: #fffefa;
+  box-shadow: 0 8px 28px #243d3309;
+}
+
+.paperBefore {
+  transform: rotate(-7deg);
+}
+
+.paperAfter {
+  transform: rotate(7deg);
+}
+
+.paper i {
+  height: 4px;
+  width: 100%;
+  border-radius: 2px;
+  background: #d8ded5;
+}
+
+.paperBefore i:nth-child(3) {
+  width: 65%;
+  background: #dba594;
+}
+
+.paperAfter i:nth-child(3) {
+  background: #8da97c;
+}
+
+.paperAfter i:nth-child(4) {
+  width: 70%;
+  background: #8da97c;
+}
+
+.comparisonSymbol {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #e0e5dc;
+  border-radius: 50%;
+  background: #f6f7f4;
+  color: #50765b;
+  font-size: 20px;
+}

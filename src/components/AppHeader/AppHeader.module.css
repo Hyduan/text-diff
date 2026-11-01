@@ -1,0 +1,31 @@
+.appHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.appHeader {
+  padding: 28px 36px;
+}
+
+.localBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+
+.localBadge span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #638f70;
+}
+
+@media (max-width: 560px) {
+  .appHeader {
+    padding: 22px 20px;
+  }
+}
