@@ -1,0 +1,32 @@
+.mount {
+  flex: 1;
+  min-height: 0;
+  background: #fffefa;
+}
+
+.mount :global(.cm-mergeView) {
+  height: 100%;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: #b4c0ae #fffefa;
+  scrollbar-width: thin;
+}
+
+.mount :global(.cm-mergeViewEditors) {
+  min-height: 100%;
+  align-items: stretch;
+}
+
+.mount :global(.cm-mergeViewEditor) {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.mount :global(.cm-mergeViewEditor + .cm-mergeViewEditor) {
+  border-left: 1px solid #e1e6db;
+}
+
+.mount :global(.cm-editor:focus-within) {
+  box-shadow: inset 0 2px #78966b;
+}

@@ -5,27 +5,38 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "check": "tsc --noEmit && tsc --noEmit -p tsconfig.node.json",
+    "check": "tsc --noEmit && tsc --noEmit -p tsconfig.node.json && tsc --noEmit -p tsconfig.e2e.json",
     "build": "pnpm check && vite build",
     "preview": "vite preview",
     "tauri": "tauri",
     "desktop:dev": "tauri dev",
     "desktop:build": "tauri build",
-    "check:rust": "cargo fmt --manifest-path src-tauri/Cargo.toml --check && cargo clippy --manifest-path src-tauri/Cargo.toml --locked -- -D warnings"
+    "check:rust": "cargo fmt --manifest-path src-tauri/Cargo.toml --check && cargo clippy --manifest-path src-tauri/Cargo.toml --locked -- -D warnings",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@codemirror/commands": "^6.11.1",
+    "@codemirror/merge": "^6.12.3",
+    "@codemirror/search": "^6.7.2",
+    "@codemirror/state": "^6.7.6",
+    "@codemirror/view": "^6.43.15",
+    "@tauri-apps/api": "^2",
+    "diff": "^9.0.0",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "@tauri-apps/api": "^2"
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.1",
+    "@tauri-apps/cli": "^2",
+    "@types/node": "^22",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
     "@vitejs/plugin-react": "^6.0.2",
     "typescript": "~6.0.3",
     "vite": "^8.0.16",
-    "@tauri-apps/cli": "^2",
-    "@types/node": "^22"
+    "vitest": "^5.0.5"
   },
   "packageManager": "pnpm@12.16.1",
   "engines": {

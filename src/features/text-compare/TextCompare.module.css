@@ -1,0 +1,124 @@
+.page {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 4px 28px 12px;
+}
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 0 22px;
+}
+.title {
+  margin: 0;
+  color: #243d33;
+  font-size: 25px;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+}
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.sampleButton {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border: 1px solid #cbd8c0;
+  border-radius: 6px;
+  color: #48623f;
+  background: #f0f4e9;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.sampleButton:hover:not(:disabled) {
+  background: #e6eedb;
+  border-color: #a9bf97;
+}
+.sampleButton:focus-visible {
+  outline: 2px solid #54774a;
+  outline-offset: 2px;
+}
+.sampleButton:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.workspace {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.editorPanel {
+  flex: 1;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e1e6db;
+  border-radius: 0 0 9px 9px;
+}
+.paneHeaders {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  flex-shrink: 0;
+  background: #fffefa;
+  border-bottom: 1px solid #e6eadd;
+}
+.paneHeaders > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 13px 18px;
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.paneHeaders > div + div {
+  border-left: 1px solid #e1e6db;
+}
+.paneName {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #344d36;
+  font-size: 12px;
+  font-weight: 550;
+  white-space: nowrap;
+}
+.beforeDot,
+.afterDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: #b67c69;
+}
+.afterDot {
+  background: #77996b;
+}
+@media (max-width: 740px) {
+  .page {
+    padding: 2px 16px 8px;
+  }
+  .intro {
+    padding-bottom: 16px;
+  }
+  .title {
+    font-size: 22px;
+  }
+  .paneHeaders > div {
+    padding: 11px 12px;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+}
