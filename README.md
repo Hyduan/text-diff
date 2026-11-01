@@ -102,11 +102,16 @@ GitHub Actions 的 `Build` 工作流在提交到 `main`、创建或更新目标�
 
 这些构建产物用于测试，尚未配置发布者签名或 macOS 公证，系统可能提示未验证开发者。工作流只上传 Actions 构建产物，不创建标签或 GitHub Release。浏览器测试验证前端交互，安装版和便携版仍需在真实 Windows 和 macOS 环境中验证。
 
+## 开发与发布流程
+
+任务分支、PR 审阅、Squash merge、版本号管理，以及后续基于标签的草稿发布流程，见 [开发与发布流程](docs/workflow.md)。Release 自动化尚未实现，当前构建产物从 Actions 下载。
+
 ## 目录结构
 
 ```text
 text-diff/
 ├── .github/workflows/       # 检查、测试和跨平台安装包构建
+├── docs/                    # 开发与发布流程
 ├── public/                  # 应用 SVG 图标
 ├── src/
 │   ├── components/          # 品牌、应用顶部栏与底部栏
