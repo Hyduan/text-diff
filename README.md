@@ -85,10 +85,33 @@ macOS / Linux 已安装 Chrome 时，也可以运行 `PLAYWRIGHT_CHANNEL=chrome 
 
 桌面产物位于 `src-tauri/target/release/bundle/`；调试构建则位于 `src-tauri/target/debug/bundle/`。Windows 与 macOS 需要在对应系统上分别验证和打包。当前尚未配置发布签名、公证或自动更新。
 
+## 自动构建
+
+GitHub Actions 的 `Build` 工作流在提交到 `main`、创建或更新目标为 `main` 的 PR 时自动运行；也可以在 Actions 页面手动触发。CI 使用 Node.js 24，pnpm 版本跟随 `package.json`，依赖安装使用锁文件。
+
+工作流先执行 TypeScript 检查、前端构建、Vitest 单元测试和 Chromium 浏览器测试，通过后分别构建以下生产安装包与 Windows 便携版，并检查各平台的 Rust 格式与 clippy：
+
+| 平台 | 产物 | Artifact 名称 |
+| --- | --- | --- |
+| Windows x64 安装版 | NSIS 安装程序 `.exe` | `text-diff-windows-x64` |
+| Windows x64 便携版 | 免安装的 `text-diff.exe` | `text-diff-windows-x64-portable` |
+| macOS Apple Silicon | `.dmg` | `text-diff-macos-arm64` |
+| macOS Intel | `.dmg` | `text-diff-macos-x64` |
+
+在仓库 **Actions → Build → 对应运行记录 → Artifacts** 下载，解压后获得对应产物。便携版解压后直接运行 `text-diff.exe`，无需安装应用；它依赖系统已安装的 [Microsoft Edge WebView2 Runtime](https://developer.microsoft.com/en-us/microsoft-edge/webview2/)，不包含运行时，缺少时需要先自行安装。产物保留 14 天；浏览器测试失败时保留截图和 trace 等诊断文件 7 天。
+
+这些构建产物用于测试，尚未配置发布者签名或 macOS 公证，系统可能提示未验证开发者。工作流只上传 Actions 构建产物，不创建标签或 GitHub Release。浏览器测试验证前端交互，安装版和便携版仍需在真实 Windows 和 macOS 环境中验证。
+
+## 开发与发布流程
+
+任务分支、PR 审阅、Squash merge、版本号管理，以及后续基于标签的草稿发布流程，见 [开发与发布流程](docs/workflow.md)。Release 自动化尚未实现，当前构建产物从 Actions 下载。
+
 ## 目录结构
 
 ```text
 text-diff/
+├── .github/workflows/       # 检查、测试和跨平台安装包构建
+├── docs/                    # 开发与发布流程
 ├── public/                  # 应用 SVG 图标
 ├── src/
 │   ├── components/          # 品牌、应用顶部栏与底部栏
